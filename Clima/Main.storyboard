@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeueLights.ttc">
-            <string>HelveticaNeue-Thin</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Weather View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -27,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="E0h-aX-oBb" userLabel="Background Image View">
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="E0h-aX-oBb" userLabel="Background Image View">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="th1-Kr-XgW" userLabel="Change City Button">
@@ -82,13 +76,13 @@
                                     <constraint firstItem="Ssc-Cu-XmK" firstAttribute="top" secondItem="C11-fU-d6q" secondAttribute="bottom" constant="2" id="xht-1J-4cs"/>
                                 </constraints>
                             </view>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pm1-Xt-66f">
-                                <rect key="frame" x="29" y="28" width="51" height="31"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFh-TR-gAn">
+                                <rect key="frame" x="311" y="208" width="83" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="switch:" destination="vXZ-lx-hvc" eventType="valueChanged" id="4hk-KV-rpm"/>
-                                </connections>
-                            </switch>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -108,14 +102,14 @@
                     <connections>
                         <outlet property="button" destination="th1-Kr-XgW" id="TMf-og-Jgv"/>
                         <outlet property="cityLabel" destination="Ssc-Cu-XmK" id="8PV-i3-tg0"/>
-                        <outlet property="faren" destination="pm1-Xt-66f" id="fOg-pu-ONd"/>
+                        <outlet property="humidityLabel" destination="zFh-TR-gAn" id="wcN-iH-tjG"/>
                         <outlet property="temperatureLabel" destination="AT7-It-Fyf" id="aNl-QI-DaP"/>
                         <outlet property="weatherIcon" destination="C11-fU-d6q" id="AG2-gZ-vGX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="17" y="259"/>
+            <point key="canvasLocation" x="15.942028985507248" y="258.42391304347831"/>
         </scene>
         <!--Change City View Controller-->
         <scene sceneID="9fV-L8-Kpp">
@@ -181,6 +175,21 @@
                                     <constraint firstAttribute="bottom" secondItem="PdY-a2-R5m" secondAttribute="bottom" id="rcZ-4T-yCp"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Humidity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qbT-gU-pVt">
+                                <rect key="frame" x="158" y="315" width="98" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KDN-zS-7GT">
+                                <rect key="frame" x="183" y="365" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="humiditySwich:" destination="P1Y-dL-zMM" eventType="valueChanged" id="hgd-Xc-gfU"/>
+                                    <action selector="humiditySwitch:" destination="zMb-Pu-j12" eventType="valueChanged" id="4VU-zX-M08"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -196,16 +205,18 @@
                     <navigationItem key="navigationItem" id="SGE-7i-E75"/>
                     <connections>
                         <outlet property="changeCityTextField" destination="0F0-ob-gbM" id="RJQ-WZ-AQ3"/>
+                        <segue destination="vXZ-lx-hvc" kind="show" identifier="humiditySegue" id="YLU-4P-zfJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wa8-oH-wtf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="zMb-Pu-j12" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="833.5" y="259.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="background" width="500" height="755"/>
-        <image name="cityBackground" width="600" height="399"/>
+        <image name="cityBackground" width="600" height="399.5"/>
         <image name="left" width="32" height="32"/>
         <image name="switch" width="64" height="64"/>
     </resources>

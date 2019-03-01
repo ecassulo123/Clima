@@ -12,21 +12,20 @@ import Alamofire
 import SwiftyJSON
 
 class WeatherViewController: UIViewController, CLLocationManagerDelegate, ChangeCityDelegate {
+  
+  
+    
+    /*  func humiditySwitch(type: Bool) {
+     
+    }
+    */
     
     @IBOutlet weak var faren: UISwitch!
     //Constants
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
     let APP_ID = "e72ca729af228beabd5d20e3b7749713"
     
-    @IBAction func `switch`(_ sender: UISwitch) {
-        
-        
-        if sender.isOn {
-            
-            
-            
-        }
-    }
+
     
     //instence variable
     let locationManager = CLLocationManager()
@@ -35,7 +34,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     
     
     
-    
+    var humidityVariable = true 
     
     
     
@@ -44,6 +43,11 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
 
+
+    @IBOutlet weak var humidityLabel: UILabel!
+    
+   
+    
 
     
     
@@ -55,10 +59,16 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     
         
         
+    /*
+        if humidityVariable == false {
+            humidityLabel.isHidden = true
+        }
+        else {
+            humidityLabel.isHidden = false
+        }
+       */
         
         
-        
-       
         // setup for location manager
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
@@ -113,8 +123,12 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     func updateWeatherData(json : JSON) {
     
         let tempResult = json["main"]["temp"].doubleValue
+        
+        let humidityResult = json["main"]["humidity"].doubleValue
     
             weatherDataModel.temperature = Int(tempResult - 273.15)
+        
+            weatherDataModel.humidity = Int(humidityResult)
     
             weatherDataModel.city = json["name"].stringValue
     
@@ -146,6 +160,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         cityLabel.text = weatherDataModel.city
         temperatureLabel.text = "\(weatherDataModel.temperature)°"
         weatherIcon.image = UIImage(named: weatherDataModel.weatherIconName)
+        humidityLabel.text = "\(weatherDataModel.humidity)%"
         
     }
     
@@ -202,7 +217,19 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
         getWeatherData(url: WEATHER_URL, parameters: params)
         
     }
-
+    
+    
+   func humidityVariable(type: String) {
+    if  type == "isOn"  {
+        humidityLabel.isHidden = false
+       }
+        
+    if type == "isOff"{
+    humidityLabel.isHidden = true
+    }
+    }
+    
+    
     
     //PrepareForSegue
     
